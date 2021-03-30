@@ -1,0 +1,176 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://HUD/Assets/Sprites/button.png" type="Texture" id=1]
+[ext_resource path="res://HUD/Scripts/Menu.gd" type="Script" id=2]
+[ext_resource path="res://HUD/Scripts/ResumeGame.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 384, 64 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 384, 64 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 384, 64 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 384, 64 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 384, 64 )
+
+[sub_resource type="InputEventAction" id=6]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="MainMenu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SartGame" type="Button" parent="MainMenu"]
+anchor_left = 0.4
+anchor_top = 0.1775
+anchor_right = 0.6
+anchor_bottom = 0.3025
+margin_top = -7.0
+margin_bottom = 7.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ResumeGame" type="Button" parent="MainMenu"]
+visible = false
+anchor_left = 0.4
+anchor_top = 0.1775
+anchor_right = 0.6
+anchor_bottom = 0.3025
+margin_top = -7.0
+margin_bottom = 7.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Resume Game"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GameMode" type="Button" parent="MainMenu"]
+anchor_left = 0.4
+anchor_top = 0.4175
+anchor_right = 0.6
+anchor_bottom = 0.5425
+margin_top = -7.0
+margin_bottom = 7.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Game Mode"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Exit" type="Button" parent="MainMenu"]
+anchor_left = 0.4
+anchor_top = 0.6575
+anchor_right = 0.6
+anchor_bottom = 0.7825
+margin_top = -7.0
+margin_bottom = 7.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+shortcut = SubResource( 7 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Mode" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Mouse" type="Button" parent="Mode"]
+anchor_left = 0.4
+anchor_top = 0.1775
+anchor_right = 0.6
+anchor_bottom = 0.3025
+margin_top = -7.0
+margin_bottom = 7.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Mouse"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Keyboard" type="Button" parent="Mode"]
+anchor_left = 0.4
+anchor_top = 0.4175
+anchor_right = 0.6
+anchor_bottom = 0.5425
+margin_top = -7.0
+margin_bottom = 7.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Keyboard"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Return" type="Button" parent="Mode"]
+anchor_left = 0.4
+anchor_top = 0.6575
+anchor_right = 0.6
+anchor_bottom = 0.7825
+margin_top = -7.0
+margin_bottom = 7.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Return"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="MainMenu/SartGame" to="." method="_on_SartGame_pressed"]
+[connection signal="pressed" from="MainMenu/GameMode" to="." method="_on_GameMode_pressed"]
+[connection signal="pressed" from="MainMenu/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Mode/Mouse" to="." method="_on_Mouse_pressed"]
+[connection signal="pressed" from="Mode/Keyboard" to="." method="_on_Keyboard_pressed"]
+[connection signal="pressed" from="Mode/Return" to="." method="_on_Return_pressed"]
